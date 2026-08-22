@@ -83,9 +83,8 @@ All 8 writes and all 8 reads passed — the scoreboard's independently computed 
 TESTBENCH COMPLETE
 ```
 
-![Simulation console output](images/simulation_console_output.png)
+![Simulation console output](waveform.png)
 
-*(Add a waveform screenshot here once captured — e.g. `images/waveform.png` showing `we`/`re`/`addr`/`wdata`/`rdata`/`valid` across a write followed by a read on the same address.)*
 
 ---
 
@@ -113,7 +112,7 @@ The DUT (`ram_design.sv`) was synthesized in Vivado targeting a Xilinx Artix-7 (
 
 ### 4.3 Timing Summary
 
-![Timing summary](images/timing_summary.png)
+![Timing summary](timing_summary.png)
 
 No user-specified timing constraints (`.xdc`) were applied, so WNS/WHS report as `inf` with 0 failing endpoints — this reflects the absence of a constraint to check against, not a verified timing closure. A real timing closure result would require a constraints file with `create_clock` on `clk` (matching the 10 ns period used in simulation) followed by an implementation run.
 
