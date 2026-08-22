@@ -102,7 +102,7 @@ The DUT (`ram_design.sv`) was synthesized in Vivado targeting a Xilinx Artix-7 (
 | F8 Muxes | 48 |
 | Bonded IOB | 28 |
 
-![Utilization report](images/utilization_report.png)
+![Utilization report](utilization_report.png)
 
 **Note on Block RAM:** No Block RAM (BRAM) primitives were inferred — the entire memory (4 × 32 × 8 = 1024 bits, plus the `rdata`/`valid` registers, totaling exactly 1033 registers) was implemented as **distributed RAM (LUTs/flip-flops)** instead. This is a direct consequence of the write-logic `always` block resetting *every* memory location synchronously/asynchronously on `rst_n` — Xilinx BRAM primitives generally do not support a full per-location reset, so the synthesis tool falls back to register-based storage. For a larger design where BRAM inference is required, the memory-array reset would need to be removed (leaving array contents undefined until the first write) to allow the tool to map the arrays onto dedicated BRAM tiles.
 
@@ -118,7 +118,7 @@ No user-specified timing constraints (`.xdc`) were applied, so WNS/WHS report as
 
 ### 4.4 Power Estimate
 
-![Power summary](images/power_summary.png)
+![Power summary](power_report.png)
 
 Total on-chip power estimate: **4.795 W** (98% dynamic, dominated by I/O at 67%). Vivado flags this as a **low-confidence, early estimate** derived without real switching activity or placement data — useful as a rough figure, not a final power number.
 
