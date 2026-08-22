@@ -108,7 +108,7 @@ The DUT (`ram_design.sv`) was synthesized in Vivado targeting a Xilinx Artix-7 (
 
 ### 4.2 Device View
 
-![Device view](images/device_view.png)
+![Device view](device_image.png)
 
 ### 4.3 Timing Summary
 
